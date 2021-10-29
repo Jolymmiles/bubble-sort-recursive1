@@ -1,20 +1,19 @@
-
 public class BubbleSort {
 
     public static int[] bubbleSort(int[] inputArray, int lenArray) {
         int timeVar;
-        boolean flagSorted = false;
-        while (!flagSorted) {
-            flagSorted = true;
-            for (int i = 0; i < lenArray - 1; i++) {
+        if (lenArray == 1) {
+            return inputArray;
+        } else {
+            for (int i = 0; i < lenArray-1; i+=1) {
                 if (inputArray[i] > inputArray[i+1]) {
-                    flagSorted = false;
                     timeVar = inputArray[i];
                     inputArray[i] = inputArray[i+1];
                     inputArray[i+1] = timeVar;
                 }
             }
-        }
-        return inputArray;
+        } return bubbleSort(inputArray, lenArray - 1);
     }
+
+
 }
